@@ -1,0 +1,14 @@
+[Unit]
+Description=Telegram Private Bot Webhook
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/telegram-private-bot-webhook
+EnvironmentFile=/opt/telegram-private-bot-webhook/.env
+ExecStart=/opt/telegram-private-bot-webhook/.venv/bin/telegram-private-bot-webhook
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

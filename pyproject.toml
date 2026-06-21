@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "telegram-private-bot-webhook"
+version = "0.1.0"
+description = "Private Telegram bot with webhook support, keyword rules, image replies, and optional AI"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "python-telegram-bot[webhooks]>=22.0",
+]
+
+[project.optional-dependencies]
+ai = ["openai>=1.0.0"]
+
+[project.scripts]
+telegram-private-bot-webhook = "telegram_private_bot_webhook.main:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

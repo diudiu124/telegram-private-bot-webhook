@@ -1,0 +1,11 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.log
+*.egg-info/
+bot_state.pickle
+.pytest_cache/
+.mypy_cache/
+.DS_Store
