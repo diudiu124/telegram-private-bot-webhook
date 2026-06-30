@@ -86,8 +86,8 @@ py -3 -m telegram_private_bot_webhook
 
 1. `/start`
 2. `/help`
-3. `esim`
-4. `返佣`
+3. 点菜单里的 `Giffgaff`
+4. 点菜单里的 `返佣`
 5. `双向`
 
 如果有回复，就说明功能是通的。

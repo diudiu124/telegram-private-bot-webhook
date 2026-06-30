@@ -292,8 +292,8 @@ Application started
 在 Telegram 里给机器人发：
 
 1. `/start`
-2. `esim`
-3. `返佣`
+2. 点菜单里的 `Giffgaff`
+3. 点菜单里的 `返佣`
 
 如果能回消息，就说明主功能没问题。
 

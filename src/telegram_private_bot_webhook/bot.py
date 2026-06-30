@@ -4,7 +4,7 @@ import logging
 from functools import partial
 from typing import Optional, Tuple
 
-from telegram import Update, User
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update, User
 from telegram.constants import ChatType
 from telegram.ext import Application, BasePersistence, CommandHandler, ContextTypes, MessageHandler, filters
 
@@ -14,9 +14,27 @@ from .rules import match_rule
 
 logger = logging.getLogger(__name__)
 
+MENU_KEYBOARD = InlineKeyboardMarkup(
+    [
+        [InlineKeyboardButton("出海赚钱从0到1", url="https://otc1888.com")],
+        [InlineKeyboardButton("Giffgaff", url="https://flowus.cn/1888otc/share/9175b330-3a80-4ff7-ba16-dda11480ad79")],
+        [InlineKeyboardButton("返佣", url="https://flowus.cn/1888otc/share/dad9c973-e1a5-4897-8636-5601ddcac83e")],
+        [InlineKeyboardButton("VPN", url="https://x2.xueshan.shop/#/register?code=wihqKLZO")],
+        [InlineKeyboardButton("指纹浏览器", url="https://www.adspower.net/share/D8RmqH")],
+    ]
+)
+
 
 def _normalize_text(text: str) -> str:
     return text.strip().casefold()
+
+
+def _menu_keyboard() -> InlineKeyboardMarkup:
+    # 欢迎消息下方的网页按钮，点击后直接打开外部链接。
+    return MENU_KEYBOARD
+
+
+WELCOME_TEXT = "欢迎使用百宝工具箱，发送‘双向’开启双向聊天，发送‘单向’结束双向聊天"
 
 
 def _topic_title(user: User) -> str:
@@ -90,19 +108,11 @@ async def send_payload(update: Update, text: str, photo: Optional[str] = None, c
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if update.effective_chat and update.effective_chat.type != ChatType.PRIVATE:
         return
-    await update.effective_message.reply_text(
-        "已连接8181铂金眼机器人。\n"
-        "如果要转人工，发送：双向；退出人工模式，发送：单向。\n"
-        "可向我发送“esim”“返佣”获取内容\n"
-        "链接主页：（打开此链接请关闭VPN代理）https://flowus.cn/1888otc/share/eaf2403a-87d2-4d60-af7b-637dd3429c61\n"
-        "备用链接：（打开此链接请关闭VPN代理）https://flowus.cn/1888otc/share/a34f265e-8303-4056-8c07-748b927c62aa"
-    )
+    await update.effective_message.reply_text(WELCOME_TEXT, reply_markup=_menu_keyboard())
 
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.effective_message.reply_text(
-        "请发送“双向”联系客服"
-    )
+    await update.effective_message.reply_text(WELCOME_TEXT, reply_markup=_menu_keyboard())
 
 
 async def id_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
