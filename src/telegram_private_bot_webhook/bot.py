@@ -16,11 +16,18 @@ logger = logging.getLogger(__name__)
 
 MENU_KEYBOARD = InlineKeyboardMarkup(
     [
-        [InlineKeyboardButton("出海赚钱从0到1", url="https://otc1888.com")],
-        [InlineKeyboardButton("Giffgaff", url="https://flowus.cn/1888otc/share/9175b330-3a80-4ff7-ba16-dda11480ad79")],
-        [InlineKeyboardButton("返佣", url="https://flowus.cn/1888otc/share/dad9c973-e1a5-4897-8636-5601ddcac83e")],
-        [InlineKeyboardButton("VPN", url="https://x2.xueshan.shop/#/register?code=wihqKLZO")],
-        [InlineKeyboardButton("指纹浏览器", url="https://www.adspower.net/share/D8RmqH")],
+        [
+            InlineKeyboardButton("出海赚钱从0到1", url="https://otc1888.com"),
+            InlineKeyboardButton("Giffgaff", url="https://flowus.cn/1888otc/share/9175b330-3a80-4ff7-ba16-dda11480ad79"),
+        ],
+        [
+            InlineKeyboardButton("返佣", url="https://flowus.cn/1888otc/share/dad9c973-e1a5-4897-8636-5601ddcac83e"),
+            InlineKeyboardButton("VPN", url="https://x2.xueshan.shop/#/register?code=wihqKLZO"),
+        ],
+        [
+            InlineKeyboardButton("指纹浏览器", url="https://www.adspower.net/share/D8RmqH"),
+            InlineKeyboardButton("全系AI中转站", url="https://api.vectorengine.ai/register?aff=4kny"),
+        ],
     ]
 )
 
